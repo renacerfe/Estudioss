@@ -1,0 +1,380 @@
+/* --- Paleta de colores y Variables --- */
+:root {
+    --fondo-cielo: #061126;
+    --fondo-agua: #163a70;
+    --oro-brillante: #f9d976;
+    --oro-mate: #d4af37;
+    --oro-sombra: #8a6d1c;
+    --blanco-luz: #f0f4f8;
+    --texto-oscuro: #2c2000;
+}
+
+/* --- Configuración General --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Fondo Radial Optimizado (Diseño Principal) */
+    background: radial-gradient(circle, var(--fondo-agua) 0%, var(--fondo-cielo) 100%);
+    background-attachment: fixed;
+    color: var(--blanco-luz);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Por defecto alineación superior para permitir scroll en contenido largo */
+    justify-content: flex-start; 
+    text-align: center;
+}
+
+/* Clase para centrar verticalmente (usada en Index) */
+body.centrado-vertical {
+    justify-content: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+/* --- Tipografía --- */
+h1, h2, h3, .titulo-principal, .titulo-seccion {
+    color: var(--oro-brillante);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+.titulo-principal {
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.titulo-seccion {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.subtitulo {
+    color: var(--oro-mate);
+    font-size: 1rem;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.descripcion {
+    font-style: italic;
+    margin-bottom: 30px;
+    color: #e0e0e0;
+}
+
+/* --- Logo Circular --- */
+.logo-placeholder {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 25px;
+    border: 3px solid var(--oro-mate);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 25px rgba(249, 217, 118, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.logo-placeholder:hover {
+    transform: scale(1.05);
+}
+
+.logo-texto {
+    font-weight: bold;
+    font-size: 1.6rem;
+    color: var(--oro-brillante);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+/* Variación pequeña del logo (para Clases) */
+.logo-placeholder.small {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+    border-width: 2px;
+    box-shadow: 0 0 15px rgba(249, 217, 118, 0.2);
+}
+.logo-placeholder.small .logo-texto {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+/* --- Cajas y Contenedores (Efecto Vidrio) --- */
+.versiculo-container, .chart-card {
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 15px;
+    padding: 30px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    margin-bottom: 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.versiculo-texto {
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.versiculo-cita {
+    display: block;
+    font-weight: bold;
+    color: var(--oro-mate);
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+}
+
+/* --- Botones --- */
+/* Estilo Base Botón Dorado 3D */
+.btn-3d-dorado, .btn-clase, .btn-oro, .btn-opcion {
+    text-decoration: none;
+    display: inline-block;
+    padding: 18px 45px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--texto-oscuro);
+    background: linear-gradient(to bottom, var(--oro-brillante), var(--oro-mate));
+    border-radius: 50px;
+    box-shadow: 0 8px 0 var(--oro-sombra), 0 15px 20px rgba(0,0,0,0.4);
+    transition: all 0.15s ease;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-3d-dorado:hover, .btn-clase:hover, .btn-oro:hover, .btn-opcion:hover {
+    filter: brightness(1.1);
+}
+
+.btn-3d-dorado:active, .btn-clase:active, .btn-oro:active, .btn-opcion:active {
+    transform: translateY(4px);
+    box-shadow: 0 4px 0 var(--oro-sombra), 0 8px 10px rgba(0,0,0,0.3);
+}
+
+/* Variaciones de Botones */
+.btn-clase {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, var(--oro-brillante), var(--oro-mate));
+    box-shadow: 0 6px 0 var(--oro-sombra), 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.btn-opcion {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 15px;
+    margin: 20px auto;
+    padding: 22px;
+}
+
+.btn-plata {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 22px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    border-radius: 15px;
+    text-transform: uppercase;
+    transition: all 0.1s ease;
+    border: none;
+    cursor: pointer;
+    color: #2c3e50;
+    background: linear-gradient(to bottom, #ffffff, #cfd8dc);
+    box-shadow: 0 8px 0 #78909c, 0 10px 20px rgba(0,0,0,0.4);
+    margin: 20px auto;
+}
+.btn-plata:active {
+    transform: translateY(4px);
+    box-shadow: 0 4px 0 #555, 0 5px 10px rgba(0,0,0,0.3);
+}
+
+/* Botones de Navegación / Volver */
+.footer-nav, .navegacion {
+    margin-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-volver, .btn-nav, .btn-regresar, .btn-3d-volver {
+    color: var(--oro-brillante);
+    text-decoration: none;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    background: transparent;
+    transition: background 0.3s;
+    display: inline-block;
+}
+
+.btn-volver:hover, .btn-nav:hover, .btn-regresar:hover, .btn-3d-volver:hover {
+    background: rgba(212, 175, 55, 0.1);
+}
+
+/* Botón 3D Volver específico (Egalitarismo) */
+.btn-3d-volver {
+    background: linear-gradient(to bottom, var(--oro-brillante), var(--oro-mate));
+    color: var(--texto-oscuro);
+    font-weight: 900;
+    box-shadow: 0 5px 0 var(--oro-sombra);
+    border: none;
+    border-radius: 10px;
+}
+.btn-3d-volver:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 var(--oro-sombra);
+}
+
+/* --- Imágenes e Infografías --- */
+.infografia, .imagen-leccion {
+    width: 100%;
+    height: auto;
+    border: 2px solid var(--oro-mate);
+    border-radius: 10px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    display: block;
+}
+
+/* --- Componentes Específicos (Egalitarismo) --- */
+.tab-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--oro-brillante);
+    border: 1px solid var(--oro-mate);
+    padding: 10px;
+    border-radius: 8px;
+    transition: 0.3s;
+    text-align: left;
+    margin-bottom: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.tab-btn.active-tab {
+    background: linear-gradient(to bottom, var(--oro-brillante), var(--oro-mate));
+    color: var(--texto-oscuro);
+    box-shadow: 0 4px 0 var(--oro-sombra);
+    font-weight: bold;
+}
+
+/* --- Utilidades --- */
+.clases-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .btn-3d-dorado, .btn-opcion, .btn-plata {
+        padding: 15px 30px;
+        font-size: 1rem;
+    }
+    .titulo-principal {
+        font-size: 1.8rem;
+    }
+}
+
+/* --- Estilos para Tablas (Nuevo) --- */
+.tabla-container {
+    width: 100%;
+    overflow-x: auto; /* Permite deslizar en celulares */
+    margin-bottom: 40px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.tabla-datos {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px; /* Fuerza el ancho para que no se apriete el texto */
+    text-align: left;
+}
+
+.tabla-datos th, .tabla-datos td {
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    vertical-align: top;
+    font-size: 0.95rem;
+}
+
+.tabla-datos th {
+    background: rgba(212, 175, 55, 0.15);
+    color: var(--oro-brillante);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.tabla-datos tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Colores para las posturas */
+.texto-oro { color: var(--oro-brillante); font-weight: bold; }
+.texto-blanco { color: #fff; font-weight: bold; }
+
+/* --- Tarjetas de Infografía (SVG) --- */
+.info-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+    text-align: center;
+    transition: transform 0.3s, border-color 0.3s;
+}
+.info-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--oro-brillante);
+    background: rgba(255, 255, 255, 0.08);
+}
+.info-card h3 {
+    color: var(--oro-brillante);
+    margin-top: 15px;
+    font-size: 1.3rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+.info-card p {
+    color: #e0e0e0;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+.info-card svg {
+    max-width: 120px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    filter: drop-shadow(0 0 8px rgba(249, 217, 118, 0.2));
+}
